@@ -7,7 +7,7 @@ export default function CardItem({ title, description, imageURL }) {
   const [likes, setLikes] = useState(randomLikeValue);
   const [showDescription, setShowDescription] = useState(false);
 
-  useEffect(() => handleClick);
+  useEffect(() => handleClick, [likes]);
 
   function handleClick() {
     setLikes(likes + 1);
