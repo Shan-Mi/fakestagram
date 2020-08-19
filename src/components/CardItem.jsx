@@ -1,14 +1,16 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./CardItem.scss";
 
 export default function CardItem({ title, description, imageURL }) {
   const randomLikeValue = Math.floor(Math.random() * Math.floor(999));
 
+  const [likes, setLikes] = useState(randomLikeValue);
+
+  useEffect(() => handleClick);
+
   function handleClick() {
     setLikes(likes + 1);
   }
-
-  const [likes, setLikes] = useState(randomLikeValue);
 
   return (
     <div
@@ -20,7 +22,9 @@ export default function CardItem({ title, description, imageURL }) {
         <div className="card-body">
           <h5>{title}</h5>
           <p>{description}</p>
-          <a href={imageURL}>Download Image</a>
+          <a href={imageURL} target="blank">
+            Download Image
+          </a>
           <button onClick={handleClick} className="btn btn-primary btn-block">
             Like
             <span role="img" aria-label="heart">

@@ -7,16 +7,16 @@ import "bootstrap/dist/css/bootstrap.css";
 function App() {
   const [data, setData] = useState([]);
 
+  async function fetchData() {
+    const res = await fetch(
+      "https://image-mock-data.firebaseio.com/images.json"
+    );
+    res.json().then((res) => setData(res));
+  }
+
   useEffect(() => {
-    async function fetchData() {
-      const res = await fetch(
-        "https://image-mock-data.firebaseio.com/images.json"
-      );
-      res.json().then((res) => setData(res));
-    }
-    
     fetchData();
-  });
+  }, []);
 
   return (
     <div className="App container flex-lg-column">
