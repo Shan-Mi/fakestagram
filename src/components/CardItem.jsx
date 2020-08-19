@@ -20,6 +20,7 @@ export default function CardItem({ title, description, imageURL }) {
         <div className="card-body">
           <h5>{title}</h5>
           <p>{description}</p>
+          <a href={imageURL}>Download Image</a>
           <button onClick={handleClick} className="btn btn-primary btn-block">
             Like
             <span role="img" aria-label="heart">

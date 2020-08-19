@@ -14,7 +14,7 @@ function App() {
       );
       res.json().then((res) => setData(res));
     }
-
+    
     fetchData();
   });
 
