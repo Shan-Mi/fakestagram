@@ -1,8 +1,24 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import CardItem from "./CardItem";
 import "./CardList.scss";
 
-export default function CardList({ data }) {
+const CardList = () => {
+  const [data, setData] = useState([]);
+  console.log("cardlist");
+  async function fetchData() {
+    const res = await fetch(
+      "https://image-mock-data.firebaseio.com/images.json"
+    );
+    res.json().then((res) => setData(res));
+  }
+
+  useEffect(() => {
+    fetchData();
+    return () => {
+      console.log("useEffect");
+    };
+  }, []);
+
   return (
     <div className="flex-container">
       {data.map((item, index) => (
@@ -15,4 +31,6 @@ export default function CardList({ data }) {
       ))}
     </div>
   );
-}
+};
+
+export default CardList;

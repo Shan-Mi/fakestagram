@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./CardItem.scss";
 
-export default function CardItem({ title, description, imageURL }) {
+const CardItem = ({ title, description, imageURL }) => {
   const randomLikeValue = Math.floor(Math.random() * Math.floor(999));
 
   const [likes, setLikes] = useState(randomLikeValue);
@@ -32,7 +32,10 @@ export default function CardItem({ title, description, imageURL }) {
     } else {
       return (
         <p>
-          <button className="clickable-text btn btn-info" onClick={toggleShowDescription} >
+          <button
+            className="clickable-text btn btn-info"
+            onClick={toggleShowDescription}
+          >
             Read More
           </button>
         </p>
@@ -66,4 +69,6 @@ export default function CardItem({ title, description, imageURL }) {
       </div>
     </div>
   );
-}
+};
+
+export default CardItem;
