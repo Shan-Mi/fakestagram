@@ -5,11 +5,29 @@ export default function CardItem({ title, description, imageURL }) {
   const randomLikeValue = Math.floor(Math.random() * Math.floor(999));
 
   const [likes, setLikes] = useState(randomLikeValue);
+  const [showDescription, setShowDescription] = useState(false);
 
   useEffect(() => handleClick);
 
   function handleClick() {
     setLikes(likes + 1);
+  }
+
+  function toggleShowDescription() {
+    // console.log("clicked toggle");
+    setShowDescription(!showDescription);
+  }
+
+  function renderDescription() {
+    if (showDescription) {
+      return <p onClick={toggleShowDescription}>{description}</p>;
+    } else {
+      return (
+        <p>
+          <a onClick={toggleShowDescription}>Read More</a>
+        </p>
+      );
+    }
   }
 
   return (
@@ -21,7 +39,9 @@ export default function CardItem({ title, description, imageURL }) {
         <img className="card-img-top" src={imageURL} alt="images" />
         <div className="card-body">
           <h5>{title}</h5>
-          <p>{description}</p>
+
+          {renderDescription()}
+
           <a href={imageURL} target="blank">
             Download Image
           </a>
