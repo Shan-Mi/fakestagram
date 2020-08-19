@@ -20,11 +20,21 @@ export default function CardItem({ title, description, imageURL }) {
 
   function renderDescription() {
     if (showDescription) {
-      return <p onClick={toggleShowDescription}>{description}</p>;
+      return (
+        <p
+          className="clickable-text"
+          onClick={toggleShowDescription}
+          onKeyDown={toggleShowDescription}
+        >
+          {description}
+        </p>
+      );
     } else {
       return (
         <p>
-          <a onClick={toggleShowDescription}>Read More</a>
+          <button className="clickable-text btn btn-info" onClick={toggleShowDescription} >
+            Read More
+          </button>
         </p>
       );
     }
