@@ -3,8 +3,10 @@ import CardItem from "./CardItem";
 import "./CardList.scss";
 
 export default function CardList({ data }) {
+
+
   return (
-    <div>
+    <div className="flex-container">
       {data.map((item, index) => (
         <CardItem
           key={index}

@@ -11,7 +11,10 @@ export default function CardItem({ title, description, imageURL }) {
   const [likes, setLikes] = useState(randomLikeValue);
 
   return (
-    <div className="col-xl-4 col-md-6 col-sm-12 mt-3">
+    <div
+      className="col-xl-4 col-md-6 col-sm-12 mt-3"
+      style={{ minWidth: "200px" }}
+    >
       <div className="card">
         <img className="card-img-top" src={imageURL} alt="images" />
         <div className="card-body">

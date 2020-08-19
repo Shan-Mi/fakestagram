@@ -69,7 +69,8 @@ const data = [
 
 function App() {
   return (
-    <div className="App">
+    <div className="App container flex-lg-column">
+      <h1 className='text-center' style={{padding: '2rem 0 0', fontSize: 'bold'}}>Fakestagram</h1>
       <CardList data={data} />
     </div>
   );
