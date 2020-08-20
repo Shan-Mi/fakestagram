@@ -8,7 +8,7 @@ const CardItem = ({ id, title, description, imageURL }) => {
   const [likes, setLikes] = useState(randomLikeValue);
   const [showDescription, setShowDescription] = useState(false);
 
-  useEffect(() => handleClick, [likes]);
+  useEffect(() => handleClick, [likes]); // eslint-disable-line react-hooks/exhaustive-deps
 
   function handleClick() {
     setLikes(likes + 1);
@@ -65,7 +65,7 @@ const CardItem = ({ id, title, description, imageURL }) => {
             </span>
             {likes}
           </button>
-          <Link to={`/image/${id}`}>Go to...</Link>
+          <Link to={`/image/${id}`}>Go to detailed page.</Link>
         </div>
       </div>
     </div>

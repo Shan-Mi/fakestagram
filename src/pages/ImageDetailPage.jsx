@@ -3,11 +3,9 @@ import CardItemDetail from "../components/CardItemDetail";
 
 export default function ImageDetailPage(props) {
   const [imageData, setImageData] = useState({});
-  console.log(props);
 
   function fetchImage() {
-
-    const imageId = props.match.params.id
+    const imageId = props.match.params.id;
 
     fetch(`https://image-mock-data.firebaseio.com/images/${imageId}.json`)
       .then((res) => res.json())
@@ -18,7 +16,7 @@ export default function ImageDetailPage(props) {
 
   useEffect(() => {
     fetchImage();
-  }, []);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <div>

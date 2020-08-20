@@ -6,6 +6,7 @@ import ImageListPage from "./pages/ImageListPage";
 import { Route, Switch } from "react-router-dom";
 import LayoutSimple from "./components/LayoutSimple";
 import ImageDetailPage from "./pages/ImageDetailPage";
+import ContactPage from "./pages/ContactPage";
 
 export default function App() {
   return (
@@ -32,7 +33,12 @@ export default function App() {
               </LayoutSimple>
             );
           }}
-        >
+        ></Route>
+
+        <Route path="/contact">
+          <LayoutSimple>
+            <ContactPage />
+          </LayoutSimple>
         </Route>
       </Switch>
     </div>

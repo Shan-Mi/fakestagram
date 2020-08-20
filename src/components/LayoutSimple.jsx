@@ -8,8 +8,11 @@ export default function LayoutSimple({ children }) {
         <Link className=" btn btn-outline-primary mr-3 btn-lg" to="/">
           Home
         </Link>
-        <Link className=" btn btn-outline-info btn-lg" to="/image-list">
+        <Link className=" btn btn-outline-info btn-lg mr-3" to="/image-list">
           Go to Image List
+        </Link>
+        <Link className="btn btn-secondary btn-lg" to="/contact">
+          Go to Contact
         </Link>
       </div>
       {children}

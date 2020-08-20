@@ -6,7 +6,7 @@ export default function CardItemDetail({ imageURL, title, description }) {
   const [likes, setLikes] = useState(randomLikeValue);
   const [showDescription, setShowDescription] = useState(false);
 
-  useEffect(() => handleClick, [likes]);
+  useEffect(() => handleClick, [likes]); // eslint-disable-line react-hooks/exhaustive-deps
 
   function handleClick() {
     setLikes(likes + 1);
