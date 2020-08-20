@@ -4,7 +4,7 @@ import "./CardList.scss";
 
 const CardList = () => {
   const [data, setData] = useState([]);
-  console.log("cardlist");
+  // console.log("cardlist");
   async function fetchData() {
     const res = await fetch(
       "https://image-mock-data.firebaseio.com/images.json"
@@ -15,7 +15,7 @@ const CardList = () => {
   useEffect(() => {
     fetchData();
     return () => {
-      console.log("useEffect");
+      // console.log("useEffect");
     };
   }, []);
 
@@ -33,4 +33,4 @@ const CardList = () => {
   );
 };
 
-export default CardList;
+export default React.memo(CardList);

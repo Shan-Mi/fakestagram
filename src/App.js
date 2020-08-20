@@ -1,19 +1,27 @@
 import React from "react";
 
-import CardList from "./components/CardList";
-
 import "bootstrap/dist/css/bootstrap.css";
+import StartPage from "./pages/StartPage";
+import ImageListPage from "./pages/ImageListPage";
+import { Route, Switch } from "react-router-dom";
+import LayoutSimple from "./components/LayoutSimple";
 
 export default function App() {
   return (
     <div className="App container flex-lg-column">
-      <h1
-        className="text-center"
-        style={{ padding: "2rem 0 0", fontSize: "bold" }}
-      >
-        Fakestagram
-      </h1>
-      <CardList />
+      <Switch>
+        <Route path="/" exact>
+          <LayoutSimple>
+            <StartPage />
+          </LayoutSimple>
+        </Route>
+
+        <Route path="/image-list">
+          <LayoutSimple>
+            <ImageListPage />
+          </LayoutSimple>
+        </Route>
+      </Switch>
     </div>
   );
 }
