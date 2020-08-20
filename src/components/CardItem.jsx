@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./CardItem.scss";
 import { Link } from "react-router-dom";
 
-const CardItem = ({ id, title, description, imageURL }) => {
+const CardItem = ({ id=null, title, description, imageURL }) => {
   const randomLikeValue = Math.floor(Math.random() * Math.floor(999));
 
   const [likes, setLikes] = useState(randomLikeValue);

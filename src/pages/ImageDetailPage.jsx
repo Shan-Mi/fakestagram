@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import CardItemDetail from "../components/CardItemDetail";
+// import CardItemDetail from "../components/CardItemDetail";
+import CardItem from "../components/CardItem";
 
 export default function ImageDetailPage(props) {
   const [imageData, setImageData] = useState({});
@@ -21,7 +22,7 @@ export default function ImageDetailPage(props) {
   return (
     <div>
       <h1>Image Detail Page</h1>
-      <CardItemDetail
+      <CardItem
         title={imageData.title}
         description={imageData.description}
         imageURL={imageData.imageURL}

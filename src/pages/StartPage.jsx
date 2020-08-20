@@ -4,7 +4,7 @@ import React from "react";
 export default function StartPage() {
   return (
     <div>
-      <h2 className='text-center'> Welcome to Fakestagram</h2>
+      <h1 className="text-center text-success mt-5"> Welcome to Fakestagram</h1>
       {/* <Link className='btn btn-block btn-dark' to="/image-list">Go to Image List</Link> */}
     </div>
   );

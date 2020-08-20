@@ -1,24 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import CardItem from "./CardItem";
 import "./CardList.scss";
+import WithSpinner from "./WithSpinner";
 
-const CardList = () => {
-  const [data, setData] = useState([]);
-  // console.log("cardlist");
-  async function fetchData() {
-    const res = await fetch(
-      "https://image-mock-data.firebaseio.com/images.json"
-    );
-    res.json().then((res) => setData(res));
-  }
-
-  useEffect(() => {
-    fetchData();
-    return () => {
-      // console.log("useEffect");
-    };
-  }, []);
-
+const CardList = ({ isLoading, data }) => {
   return (
     <div className="flex-container">
       {data.map((item, index) => (
@@ -34,4 +19,4 @@ const CardList = () => {
   );
 };
 
-export default React.memo(CardList);
+export default WithSpinner(CardList);
