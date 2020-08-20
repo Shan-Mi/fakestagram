@@ -5,6 +5,7 @@ import StartPage from "./pages/StartPage";
 import ImageListPage from "./pages/ImageListPage";
 import { Route, Switch } from "react-router-dom";
 import LayoutSimple from "./components/LayoutSimple";
+import ImageDetailPage from "./pages/ImageDetailPage";
 
 export default function App() {
   return (
@@ -20,6 +21,18 @@ export default function App() {
           <LayoutSimple>
             <ImageListPage />
           </LayoutSimple>
+        </Route>
+
+        <Route
+          path="/image/:id"
+          render={(props) => {
+            return (
+              <LayoutSimple>
+                <ImageDetailPage {...props} />
+              </LayoutSimple>
+            );
+          }}
+        >
         </Route>
       </Switch>
     </div>

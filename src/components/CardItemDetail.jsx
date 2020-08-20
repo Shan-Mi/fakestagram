@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
-import "./CardItem.scss";
-import { Link } from "react-router-dom";
 
-const CardItem = ({ id, title, description, imageURL }) => {
+export default function CardItemDetail({ imageURL, title, description }) {
   const randomLikeValue = Math.floor(Math.random() * Math.floor(999));
 
   const [likes, setLikes] = useState(randomLikeValue);
@@ -15,6 +13,7 @@ const CardItem = ({ id, title, description, imageURL }) => {
   }
 
   function toggleShowDescription() {
+    // console.log("clicked toggle");
     setShowDescription(!showDescription);
   }
 
@@ -44,32 +43,26 @@ const CardItem = ({ id, title, description, imageURL }) => {
   }
 
   return (
-    <div
-      className="col-xl-4 col-md-6 col-sm-12 mt-3"
-      style={{ minWidth: "200px" }}
-    >
-      <div className="card">
-        <img className="card-img-top" src={imageURL} alt="images" />
-        <div className="card-body">
-          <h5>{title}</h5>
-
-          {renderDescription()}
-
-          <a href={imageURL} target="blank">
-            Download Image
-          </a>
-          <button onClick={handleClick} className="btn btn-primary btn-block">
-            Like
-            <span role="img" aria-label="heart">
-              🤍
-            </span>
-            {likes}
-          </button>
-          <Link to={`/image/${id}`}>Go to...</Link>
+    <div>
+      <div className="col-xl-12 mt-3" style={{ minWidth: "200px" }}>
+        <div className="card">
+          <img className="card-img-top" src={imageURL} alt="images" />
+          <div className="card-body">
+            <h5>{title}</h5>
+            {renderDescription()}
+            <a href={imageURL} target="blank">
+              Download Image
+            </a>
+            <button onClick={handleClick} className="btn btn-primary btn-block">
+              Like
+              <span role="img" aria-label="heart">
+                🤍
+              </span>
+              {likes}
+            </button>
+          </div>
         </div>
       </div>
     </div>
   );
-};
-
-export default CardItem;
+}

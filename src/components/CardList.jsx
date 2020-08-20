@@ -24,6 +24,7 @@ const CardList = () => {
       {data.map((item, index) => (
         <CardItem
           key={index}
+          id={index}
           title={item.title}
           description={item.description}
           imageURL={item.imageURL}
