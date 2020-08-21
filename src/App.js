@@ -25,7 +25,7 @@ export default function App() {
         </Route>
 
         <Route
-          path="/image/:id"
+          path="/images/:id"
           render={(props) => {
             return (
               <LayoutSimple>

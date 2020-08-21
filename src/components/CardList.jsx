@@ -10,9 +10,7 @@ const CardList = ({ isLoading, data }) => {
         <CardItem
           key={index}
           id={index}
-          title={item.title}
-          description={item.description}
-          imageURL={item.imageURL}
+          data={item}
         />
       ))}
     </div>

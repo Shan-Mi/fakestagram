@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from "react";
 import "./CardItem.scss";
 import { Link } from "react-router-dom";
+import WithSpinner from "./WithSpinner";
 
-const CardItem = ({ id, title, description, imageURL }) => {
+const CardItem = ({ id, data }) => {
+  const { description, imageURL, title } = data;
+
   const randomLikeValue = Math.floor(Math.random() * Math.floor(999));
 
   const [likes, setLikes] = useState(randomLikeValue);
@@ -65,11 +68,11 @@ const CardItem = ({ id, title, description, imageURL }) => {
             </span>
             {likes}
           </button>
-          <Link to={`/image/${id}`}>Go to detailed page.</Link>
+          <Link to={`/images/${id}`}>Go to detailed page.</Link>
         </div>
       </div>
     </div>
   );
 };
 
-export default CardItem;
+export default WithSpinner(CardItem);
