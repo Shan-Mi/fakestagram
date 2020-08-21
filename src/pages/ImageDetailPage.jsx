@@ -4,10 +4,9 @@ import CardItem from "../components/CardItem";
 
 export default function ImageDetailPage(props) {
   const [imageData, setImageData] = useState({});
+  const imageId = props.match.params.id;
 
   function fetchImage() {
-    const imageId = props.match.params.id;
-
     fetch(`https://image-mock-data.firebaseio.com/images/${imageId}.json`)
       .then((res) => res.json())
       .then((result) => {
@@ -23,6 +22,7 @@ export default function ImageDetailPage(props) {
     <div>
       <h1>Image Detail Page</h1>
       <CardItem
+        id={imageId}
         title={imageData.title}
         description={imageData.description}
         imageURL={imageData.imageURL}
