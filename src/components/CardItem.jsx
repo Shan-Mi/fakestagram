@@ -1,78 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import "./CardItem.scss";
-import { Link } from "react-router-dom";
 import WithSpinner from "./WithSpinner";
+import CardsPreview from "./CardsPreview";
+// import CardDetail from "./CardDetail";
+// import { CardDetailWrapper } from "./CardDetail.styles";
 
-const CardItem = ({ id, data }) => {
-  const { description, imageURL, title } = data;
-
-  const randomLikeValue = Math.floor(Math.random() * Math.floor(999));
-
-  const [likes, setLikes] = useState(randomLikeValue);
-  const [showDescription, setShowDescription] = useState(false);
-
-  useEffect(() => handleClick, [likes]); // eslint-disable-line react-hooks/exhaustive-deps
-
-  function handleClick() {
-    setLikes(likes + 1);
-  }
-
-  function toggleShowDescription() {
-    setShowDescription(!showDescription);
-  }
-
-  function renderDescription() {
-    if (showDescription) {
-      return (
-        <p
-          className="clickable-text"
-          onClick={toggleShowDescription}
-          onKeyDown={toggleShowDescription}
-        >
-          {description}
-        </p>
-      );
-    } else {
-      return (
-        <p>
-          <button
-            className="clickable-text btn btn-info"
-            onClick={toggleShowDescription}
-          >
-            Read More
-          </button>
-        </p>
-      );
-    }
-  }
-
-  return (
-    <div
-      className="col-xl-4 col-md-6 col-sm-12 mt-3"
-      style={{ minWidth: "200px" }}
-    >
-      <div className="card">
-        <img className="card-img-top" src={imageURL} alt="images" />
-        <div className="card-body">
-          <h5>{title}</h5>
-
-          {renderDescription()}
-
-          <a href={imageURL} target="_blank" rel="noopener noreferrer">
-            Download Image
-          </a>
-          <button onClick={handleClick} className="btn btn-primary btn-block">
-            Like
-            <span role="img" aria-label="heart">
-              🤍
-            </span>
-            {likes}
-          </button>
-          <Link to={`/images/${id}`}>Go to detailed page.</Link>
-        </div>
-      </div>
-    </div>
-  );
+const CardItem = ({ id, data, detailedPage = "false" }) => {
+  return <CardsPreview data={data} id={id} detailedPage={detailedPage} />;
 };
 
 export default WithSpinner(CardItem);

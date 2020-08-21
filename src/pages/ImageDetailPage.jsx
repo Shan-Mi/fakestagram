@@ -9,9 +9,9 @@ export default function ImageDetailPage(props) {
   const [data, isLoading] = useFetch(url, []);
 
   return (
-    <div>
-      <h1>Image Detail Page</h1>
-      <CardItem id={imageId} isLoading={isLoading} data={data} />
-    </div>
+    <>
+      <h1 className='text-center'>Image Detail Page</h1>
+      <CardItem id={imageId} isLoading={isLoading} data={data} detailedPage={"true"}/>
+    </>
   );
 }
